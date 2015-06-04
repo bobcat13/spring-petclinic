@@ -42,15 +42,14 @@ public class CallMonitoringAspect {
 
     private long accumulatedCallTime = 0;
 
-
-    @ManagedAttribute
-    public void setEnabled(boolean enabled) {
-    	this.enabled = enabled;
-    }
-
     @ManagedAttribute
     public boolean isEnabled() {
         return enabled;
+    }
+
+    @ManagedAttribute
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @ManagedOperation
@@ -66,10 +65,10 @@ public class CallMonitoringAspect {
 
     @ManagedAttribute
     public long getCallTime() {
-    	if (this.callCount > 0) 
-    		return this.accumulatedCallTime / this.callCount;
-    	else
-    		return 0;
+        if (this.callCount > 0)
+            return this.accumulatedCallTime / this.callCount;
+        else
+            return 0;
     }
 
 
